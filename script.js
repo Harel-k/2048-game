@@ -61,8 +61,8 @@ async function handleInput(e) {
             const resetBtn = document.getElementById("try-again")
 
             setTimeout(() =>{
-                window.location.reload()
-            }, 1400);
+                location.reload()
+            }, 600);
         }
     })
     return
