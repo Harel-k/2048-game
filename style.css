@@ -1,0 +1,74 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-size: 7.5vmin;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+  grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+  background-color: #CCC;
+  gap: var(--cell-gap);
+  border-radius: 1vmin;
+  padding: var(--cell-gap);
+  position: relative;
+}
+
+.cell {
+  background-color: #AAA;
+  border-radius: 1vmin;
+}
+
+.tile {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-color: red;
+  border-radius: 1vmin;
+  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  font-weight: bold;
+  background-color: hsl(200, 50%, var(--background-lightness));
+  color: hsl(200, 25%, var(--text-lightness));
+  animation: show 200ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
+
+@keyframes show {
+  0% {
+    opacity: .5;
+    transform: scale(0);
+  }
+}
+
+#try-again{
+    padding: 10px;
+    justify-content: center;
+    background-color: #75f6ff;
+    border-radius: 4px;
+    border: 1.6px solid #3ca2a9;
+    width: 13.4vmin;
+    height: 6vmin;
+    box-shadow: 4px 0.1px 0.2px 1px #aaaa; /* 3d button look */
+}
+#try-again:hover{
+    background-color: #63d3db;
+}
+#try-again:active{
+    /* transform: scale(1.2); */
+    transform: translateX(4px); /* 3d button pushed animation */
+    box-shadow: none; /* 3d button pushed animation */
+}
